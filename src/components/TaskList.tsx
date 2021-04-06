@@ -22,12 +22,17 @@ export function TaskList() {
       title: newTaskTitle,
       isComplete: false
     }
-    useEffect(() => {
-      console.log(`Atualizando as ${tasks}`)
-      setTasks([...tasks, inputTask])
-    })
 
+    setTasks([...tasks, inputTask])
+    console.log(tasks)
+
+    // useEffect(() => {
+    //   console.log(`Atualizando as tasks`)
+    //   setTasks([...tasks, inputTask])
+    // })
   }
+
+  
 
   function handleToggleTaskCompletion(id: number) {
     // Altere entre `true` ou `false` o campo `isComplete` de uma task com dado ID
