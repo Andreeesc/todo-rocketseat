@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import '../styles/tasklist.scss'
 
@@ -16,6 +16,17 @@ export function TaskList() {
 
   function handleCreateNewTask() {
     // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
+
+    const inputTask = {
+      id: tasks.length + 1,
+      title: newTaskTitle,
+      isComplete: false
+    }
+    useEffect(() => {
+      console.log(`Atualizando as ${tasks}`)
+      setTasks([...tasks, inputTask])
+    })
+
   }
 
   function handleToggleTaskCompletion(id: number) {
