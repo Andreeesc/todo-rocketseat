@@ -14,6 +14,11 @@ export function TaskList() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState('');
 
+  useEffect(() => {
+    handleCreateNewTask
+    console.log(tasks)
+  }, [tasks])
+
   function handleCreateNewTask() {
     // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
 
@@ -24,15 +29,7 @@ export function TaskList() {
     }
 
     setTasks([...tasks, inputTask])
-    console.log(tasks)
-
-    // useEffect(() => {
-    //   console.log(`Atualizando as tasks`)
-    //   setTasks([...tasks, inputTask])
-    // })
   }
-
-  
 
   function handleToggleTaskCompletion(id: number) {
     // Altere entre `true` ou `false` o campo `isComplete` de uma task com dado ID
